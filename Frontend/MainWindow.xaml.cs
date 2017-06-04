@@ -46,8 +46,8 @@ namespace Frontend
 
         private void PastePressed(object sender, HotKeyEventArgs hotKeyEventArgs)
         {
-            BringIntoView();
-            Activate();
+            var popup = new Popup(Clips);
+            popup.Show();
         }
     }
 }

@@ -1,0 +1,17 @@
+﻿<Window x:Class="Frontend.Popup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Frontend"
+        mc:Ignorable="d"
+        Title="Popup" Height="300" Width="300" WindowStyle="None">
+    <Grid>
+        <DataGrid ItemsSource="{Binding Clips}" AutoGenerateColumns="False" ColumnHeaderHeight="0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="DisplayText" Binding="{Binding DisplayText}">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
