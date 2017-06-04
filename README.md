@@ -14,3 +14,8 @@ What's going to be out-of-scope for now:
 
 - handling images & more
 - persisting clips
+
+# Used libraries
+
+- [Global Hotkeys by Henning Dietrichs](https://www.codeproject.com/Tips/274003/Global-Hotkeys-in-WPF)
+- [Clipboard Manager by Colin Dabritz](https://stackoverflow.com/a/33018459/289748)
