@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Clipboard.cs" />
     <Compile Include="NativeMethods.cs" />
+    <Compile Include="StringExtensions.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

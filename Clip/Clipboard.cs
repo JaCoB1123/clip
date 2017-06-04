@@ -69,6 +69,8 @@ namespace Clip
             _dataObject = dataObject;
         }
 
+        public string DisplayText => Text?.Trim()?.RemoveNewlines();
+
         public string Text => GetData<string>(DataFormats.UnicodeText);
 
         public T GetData<T>(string format)
