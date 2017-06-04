@@ -61,6 +61,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Hotkey.cs" />
+    <Compile Include="HotKeyAlreadyRegisteredException.cs" />
+    <Compile Include="HotKeyEventArgs.cs" />
+    <Compile Include="HotKeyHost.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
