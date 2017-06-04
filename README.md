@@ -7,4 +7,10 @@ It's supposed to be:
 
 - non-intrusive
 - keyboard-accessible
-- secure (not saving copied passwords to disk)
+- secure (not saving copied passwords to disk in clear-text)
+- handling text well
+
+What's going to be out-of-scope for now:
+
+- handling images & more
+- persisting clips
