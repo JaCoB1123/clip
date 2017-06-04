@@ -13,7 +13,7 @@ namespace Clip
             for (var i = 0; i < sb.Length; i++)
             {
                 if (sb[i] == '\r' || sb[i] == '\n')
-                    sb.Remove(i, 1);
+                    sb.Remove(i--, 1);
             }
 
             return sb.ToString();
