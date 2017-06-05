@@ -9,7 +9,7 @@
     <Grid>
         <DataGrid ItemsSource="{Binding Clips}" AutoGenerateColumns="False" ColumnHeaderHeight="0">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="DisplayText" Binding="{Binding DisplayText}">
+                <DataGridTextColumn Header="DisplayText" Binding="{Binding DisplayText, Mode=OneWay}">
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
