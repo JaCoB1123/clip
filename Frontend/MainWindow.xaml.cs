@@ -48,6 +48,7 @@ namespace Frontend
         {
             var popup = new Popup(Clips);
             popup.Show();
+            popup.Activate();
         }
     }
 }
