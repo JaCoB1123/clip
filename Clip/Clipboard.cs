@@ -63,6 +63,7 @@ namespace Clip
     public class ClipboardEntry
     {
         private readonly IDataObject _dataObject;
+        private string _text;
 
         public ClipboardEntry(IDataObject dataObject)
         {
@@ -71,7 +72,7 @@ namespace Clip
 
         public string DisplayText => Text?.Trim()?.RemoveNewlines();
 
-        public string Text => GetData<string>(DataFormats.UnicodeText);
+        public string Text => _text ?? (_text = GetData<string>(DataFormats.UnicodeText));
 
         public T GetData<T>(string format)
         {
