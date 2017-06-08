@@ -9,6 +9,7 @@ namespace Clip
     public class Clipboard
     {
         private static readonly IntPtr WndProcSuccess = IntPtr.Zero;
+        private static bool _triggerDisabled = false;
 
         public Clipboard(Window windowSource)
         {
@@ -31,8 +32,13 @@ namespace Clip
 
         public event EventHandler<ClipboardChangedEventArgs> ClipboardChanged;
 
+        public static IDisposable DisableTrigger => new DisableTriggerDisposable();
+
         private void OnClipboardChanged()
         {
+            if (_triggerDisabled)
+                return;
+
             var obj = System.Windows.Clipboard.GetDataObject();
             var entry = new ClipboardEntry(obj);
             var args = new ClipboardChangedEventArgs(entry);
@@ -48,6 +54,19 @@ namespace Clip
             }
 
             return WndProcSuccess;
+        }
+
+        public class DisableTriggerDisposable : IDisposable
+        {
+            internal DisableTriggerDisposable()
+            {
+                _triggerDisabled = true;
+            }
+
+            public void Dispose()
+            {
+                _triggerDisabled = false;
+            }
         }
     }
 
