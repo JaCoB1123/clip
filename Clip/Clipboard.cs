@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
 using IDataObject = System.Windows.IDataObject;
@@ -62,13 +63,14 @@ namespace Clip
 
     public class ClipboardEntry
     {
-        private readonly IDataObject _dataObject;
         private string _text;
 
         public ClipboardEntry(IDataObject dataObject)
         {
-            _dataObject = dataObject;
+            DataObject = dataObject;
         }
+
+        public IDataObject DataObject { get; }
 
         public string DisplayText => Text?.Trim()?.RemoveNewlines();
 
@@ -76,10 +78,17 @@ namespace Clip
 
         public T GetData<T>(string format)
         {
-            if (!_dataObject.GetDataPresent(format))
+            if (!DataObject.GetDataPresent(format))
                 return default(T);
 
-            return (T)_dataObject.GetData(format);
+            try
+            {
+                return (T)DataObject.GetData(format);
+            }
+            catch (ExternalException)
+            {
+                return default(T);
+            }
         }
     }
 }
